@@ -46,7 +46,6 @@ jobs:
 
       - name: Publish to Maven Central
         env:
-          GPG_TTY: ${{ runner.tty }}
           OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
         run: ./gradlew publish publishToMavenCentralPortal
