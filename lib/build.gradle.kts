@@ -89,7 +89,10 @@ publishing {
 }
 
 signing {
-    useGpgCmd()
+    def signingKey = '<your signing key>'
+    def signingPassword = "thisismypassphrase"
+    useInMemoryPgpKeys(signingKey, signingPassword)
+
     sign(publishing.publications["mavenJava"])
 }
 
@@ -97,7 +100,7 @@ mavenCentral {
     repoDir = layout.buildDirectory.dir("repos/bundles")
     // Token for Publisher API calls obtained from Sonatype official,
     // it should be Base64 encoded of "username:password".
-    authToken = "WkZQQ0d3R0s6RGlrRHpOVFA4MHB1ZC9IRDFHTHNSckF1dkxCak1kdWRJdnRtaGpIeTA2SGo="
+    authToken = "<your token>" 
     // Whether the upload should be automatically published or not. Use 'USER_MANAGED' if you wish to do this manually.
     // This property is optional and defaults to 'AUTOMATIC'.
     publishingType = "AUTOMATIC"
