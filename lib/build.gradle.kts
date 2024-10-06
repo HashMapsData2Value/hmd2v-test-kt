@@ -97,8 +97,8 @@ signing {
     sign(publishing.publications["mavenJava"])
 }
 
-val username = System.getenv("OSSHR_USERNAME") ?: ""
-val password = System.getenv("OSSHR_PASSWORD") ?: ""
+val username = System.getenv("OSSRH_USERNAME") ?: ""
+val password = System.getenv("OSSRH_PASSWORD") ?: ""
 
 mavenCentral {
     repoDir = layout.buildDirectory.dir("repos/bundles")
