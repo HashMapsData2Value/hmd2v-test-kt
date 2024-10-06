@@ -38,14 +38,13 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Attempt to publish to Maven Central
+      - name: Run publish
         env:
           OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
           GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-        run: ./gradlew publish publishToMavenCentralPortal
-        continue-on-error: true
+        run: ./gradlew publish
 
       - name: Actually publish to Maven Central
         env:
@@ -53,7 +52,7 @@ jobs:
           OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
           GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-        run: ./gradlew publish publishToMavenCentralPortal
+        run: ./gradlew publishToMavenCentralPortal
 
       - name: explore
         run: ls -alh lib/build
