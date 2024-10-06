@@ -54,22 +54,6 @@ jobs:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
         run: ./gradlew publishToMavenCentralPortal
 
-      - name: explore
-        run: ls -alh lib/build
-        continue-on-error: true
-
-      - name: explore2
-        run: ls -alh lib/build/libs
-        continue-on-error: true
-
-      - name: explore3
-        run: ls -alh lib/build/distributions
-        continue-on-error: true
-
-      - name: explore4
-        run: ls -alh lib/build/repos/bundles/io/github/hashmapsdata2value/hmd2v-lib
-        continue-on-error: true
-
       - name: Merge Release -> Trunk
         uses: devmasx/merge-branch@854d3ac71ed1e9deb668e0074781b81fdd6e771f
         if: github.ref == 'refs/heads/release/1.x'

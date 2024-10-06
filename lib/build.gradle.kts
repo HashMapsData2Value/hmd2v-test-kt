@@ -111,5 +111,5 @@ mavenCentral {
     // Max wait time for status API to get 'PUBLISHING' or 'PUBLISHED' status when the publishing type is 'AUTOMATIC',
     // or additionally 'VALIDATED' when the publishing type is 'USER_MANAGED'.
     // This property is optional and defaults to 60 seconds.
-    maxWait = 60
+    maxWait = 500
 }
